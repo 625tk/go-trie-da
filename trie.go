@@ -7,7 +7,7 @@ import (
 type (
 	Trie struct {
 		root TrieNode
-		size int
+		Size int
 	}
 
 	TrieNode struct {
@@ -18,7 +18,7 @@ type (
 	}
 )
 
-func (trie *Trie) insert(str string) {
+func (trie *Trie) Insert(str string) {
 	tree := &trie.root
 
 	buffer := bytes.NewBufferString(str)
@@ -34,8 +34,8 @@ func (trie *Trie) insert(str string) {
 			}
 			if index == -1 {
 				index = len(tree.children)
-				tree.children = append(tree.children, &TrieNode{id: trie.size, key: elm})
-				trie.size++
+				tree.children = append(tree.children, &TrieNode{id: trie.Size, key: elm})
+				trie.Size++
 			}
 			tree = tree.children[index]
 		}
@@ -43,7 +43,7 @@ func (trie *Trie) insert(str string) {
 	tree.value = 1
 }
 
-func (trie *Trie) find(str string) bool {
+func (trie *Trie) Find(str string) bool {
 	buffer := bytes.NewBufferString(str)
 	tree := &trie.root
 	for {

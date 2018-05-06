@@ -13,7 +13,7 @@ func TestTrieInsert(t *testing.T) {
 	}
 	for _, str := range strs {
 		trie := Trie{}
-		trie.insert(str)
+		trie.Insert(str)
 		tree := trie.root
 		buffer := bytes.NewBufferString(str)
 		for {
@@ -28,8 +28,8 @@ func TestTrieInsert(t *testing.T) {
 		}
 	}
 	trie := Trie{}
-	trie.insert(strs[0])
-	trie.insert(strs[1])
+	trie.Insert(strs[0])
+	trie.Insert(strs[1])
 	if char, _ := bytes.NewBufferString("あ").ReadByte(); char != trie.root.children[1].key {
 		t.Errorf("error")
 	}
@@ -37,7 +37,7 @@ func TestTrieInsert(t *testing.T) {
 
 func TestTrieFind(t *testing.T) {
 	trie := Trie{}
-	trie.insert("aiueo")
+	trie.Insert("aiueo")
 
 	errors := []string{
 		"a",
@@ -46,11 +46,11 @@ func TestTrieFind(t *testing.T) {
 	}
 
 	for _, val := range errors {
-		if trie.find(val) {
+		if trie.Find(val) {
 			t.Errorf("error")
 		}
 	}
-	if !trie.find("aiueo") {
+	if !trie.Find("aiueo") {
 		t.Errorf("error")
 	}
 
