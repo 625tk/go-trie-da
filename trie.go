@@ -10,13 +10,27 @@ type (
 		Size int
 	}
 
+	TrieNodes []*TrieNode
+
 	TrieNode struct {
-		children []*TrieNode
+		children TrieNodes
 		id       int
 		key      byte
 		value    int
 	}
 )
+
+func (t TrieNodes)Len()int{
+	return len(t)
+}
+
+func (t TrieNodes)Swap(i,j int){
+	t[i], t[j] = t[j], t[i]
+}
+
+func(t TrieNodes)Less(i, j int)bool{
+	return t[i].key < t[j].key
+}
 
 func (trie *Trie) Insert(str string) {
 	tree := &trie.root
