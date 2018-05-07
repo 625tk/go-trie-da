@@ -54,7 +54,7 @@ func (trie *Trie) Insert(str string) {
 			tree = tree.children[index]
 		}
 	}
-	tree.value = 1
+	tree.value = tree.value + 1
 }
 
 func (trie *Trie) Find(str string) bool {
