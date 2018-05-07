@@ -81,7 +81,7 @@ func (da *DoubleArray) insert(head *int, tree *TrieNode, check int) int {
 		//update offset
 		empty_slot -= (*da)[empty_slot].CHECK
 	}
-	return 999
+	return -1
 }
 
 func (da *DoubleArray) Query(str string) int {
