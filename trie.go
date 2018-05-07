@@ -20,15 +20,15 @@ type (
 	}
 )
 
-func (t TrieNodes)Len()int{
+func (t TrieNodes) Len() int {
 	return len(t)
 }
 
-func (t TrieNodes)Swap(i,j int){
+func (t TrieNodes) Swap(i, j int) {
 	t[i], t[j] = t[j], t[i]
 }
 
-func(t TrieNodes)Less(i, j int)bool{
+func (t TrieNodes) Less(i, j int) bool {
 	return t[i].key < t[j].key
 }
 
